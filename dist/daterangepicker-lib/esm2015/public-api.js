@@ -1,0 +1,11 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+ * Public API Surface of daterangepicker-lib
+ */
+export { DaterangepickerLibService } from './lib/daterangepicker-lib.service';
+export { DaterangepickerLibComponent } from './lib/daterangepicker-lib.component';
+export { DaterangepickerLibModule } from './lib/daterangepicker-lib.module';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLWFwaS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL2RhdGVyYW5nZXBpY2tlci1saWIvIiwic291cmNlcyI6WyJwdWJsaWMtYXBpLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7QUFJQSwwQ0FBYyxtQ0FBbUMsQ0FBQztBQUNsRCw0Q0FBYyxxQ0FBcUMsQ0FBQztBQUNwRCx5Q0FBYyxrQ0FBa0MsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qXG4gKiBQdWJsaWMgQVBJIFN1cmZhY2Ugb2YgZGF0ZXJhbmdlcGlja2VyLWxpYlxuICovXG5cbmV4cG9ydCAqIGZyb20gJy4vbGliL2RhdGVyYW5nZXBpY2tlci1saWIuc2VydmljZSc7XG5leHBvcnQgKiBmcm9tICcuL2xpYi9kYXRlcmFuZ2VwaWNrZXItbGliLmNvbXBvbmVudCc7XG5leHBvcnQgKiBmcm9tICcuL2xpYi9kYXRlcmFuZ2VwaWNrZXItbGliLm1vZHVsZSc7XG4iXX0=
