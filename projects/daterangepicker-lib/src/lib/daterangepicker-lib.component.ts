@@ -37,7 +37,7 @@ export class DaterangepickerLibComponent implements OnInit{
       currentTime = (moment.unix(Number(this.timeRange))).valueOf();
     }
     this.presetsConfig = {
-      'Today': [moment(currentTime), moment(currentTime)],
+      /*'Today': [moment(currentTime), moment(currentTime)],
       'This Week': [moment(currentTime).startOf('week'), moment(currentTime).endOf('week')],
       'Week': [moment(currentTime).startOf('week'), moment(currentTime).endOf('week')],
       'This Month': [moment(currentTime).startOf('month'), moment(currentTime).endOf('month')],
@@ -46,7 +46,7 @@ export class DaterangepickerLibComponent implements OnInit{
       'Last 7 Days': [moment(currentTime).subtract(6, 'days'), moment(currentTime)],
       'Last 30 Days': [moment(currentTime).subtract(29, 'days'), moment(currentTime)],
       'Last Month': [moment(currentTime).subtract(1, 'month').startOf('month'), moment(currentTime).subtract(1, 'month').endOf('month')],
-      'Quarter': [moment(currentTime).startOf('quarter'), moment(currentTime).endOf('quarter')]
+      'Quarter': [moment(currentTime).startOf('quarter'), moment(currentTime).endOf('quarter')]*/
     };
   }
 
