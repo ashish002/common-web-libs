@@ -268,7 +268,7 @@ class DaterangepickerLibComponent {
         if (maxDate) {
             dateRangePickerConfig['maxDate'] = maxDate;
         }
-        $(this.dateRangePicker.nativeElement).daterangepicker(dateRangePickerConfig, this.cb.bind(this)).on('outsideClick.daterangepicker', (/**
+        ((/** @type {?} */ ($(this.dateRangePicker.nativeElement)))).daterangepicker(dateRangePickerConfig, this.cb.bind(this)).on('outsideClick.daterangepicker', (/**
          * @param {?} ev
          * @param {?} picker
          * @return {?}

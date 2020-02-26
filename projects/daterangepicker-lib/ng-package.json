@@ -6,6 +6,7 @@
   },
   "whitelistedNonPeerDependencies": [
     "daterangepicker",
-    "moment"
+    "moment",
+    "@types/jquery"
   ]
 }

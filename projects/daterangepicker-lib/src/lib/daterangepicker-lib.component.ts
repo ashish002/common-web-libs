@@ -5,7 +5,6 @@ import * as moment_ from "moment";
 
 const moment = moment_;
 
-declare var $: any;
 
 @Component({
   selector: 'app-daterange-picker',
@@ -74,7 +73,7 @@ export class DaterangepickerLibComponent implements OnInit{
     if(maxDate){
       dateRangePickerConfig['maxDate'] = maxDate;
     }
-    $(this.dateRangePicker.nativeElement).daterangepicker(dateRangePickerConfig, this.cb.bind(this)).on('outsideClick.daterangepicker', function(ev, picker) {
+    (<any>$(this.dateRangePicker.nativeElement)).daterangepicker(dateRangePickerConfig, this.cb.bind(this)).on('outsideClick.daterangepicker', function(ev, picker) {
       that.checkOutsideClickEvent = true;
       picker.startDate = picker.oldStartDate;
       picker.endDate = picker.oldEndDate;
