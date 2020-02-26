@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "daterangepicker-lib": [
+        "dist/daterangepicker-lib"
+      ],
+      "daterangepicker-lib/*": [
+        "dist/daterangepicker-lib/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
