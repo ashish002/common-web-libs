@@ -4,7 +4,7 @@ import {DateUtil} from "./util/date.util";
 import * as moment_ from "moment";
 declare var $: any;
 
-const moment = moment_;
+const moment = moment_.default;
 
 
 @Component({
