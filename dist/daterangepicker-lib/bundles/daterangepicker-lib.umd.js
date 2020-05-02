@@ -1,8 +1,8 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('moment')) :
     typeof define === 'function' && define.amd ? define('daterangepicker-lib', ['exports', '@angular/core', 'moment'], factory) :
-    (global = global || self, factory(global['daterangepicker-lib'] = {}, global.ng.core, global.moment_));
-}(this, (function (exports, core, moment_) { 'use strict';
+    (global = global || self, factory(global['daterangepicker-lib'] = {}, global.ng.core, global.moment));
+}(this, (function (exports, core, moment) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -447,8 +447,6 @@
      * @fileoverview added by tsickle
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
-    /** @type {?} */
-    var moment = moment_;
     var DaterangepickerLibComponent = /** @class */ (function () {
         function DaterangepickerLibComponent() {
             this.startTime = 0;

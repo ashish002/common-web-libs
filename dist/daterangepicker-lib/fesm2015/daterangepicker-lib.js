@@ -1,5 +1,5 @@
 import { Injectable, ɵɵdefineInjectable, EventEmitter, Component, Input, ViewChild, Output, NgModule } from '@angular/core';
-import * as moment_ from 'moment';
+import { now, unix, utc } from 'moment';
 
 /**
  * @fileoverview added by tsickle
@@ -202,8 +202,6 @@ if (false) {
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
-/** @type {?} */
-const moment = moment_;
 class DaterangepickerLibComponent {
     constructor() {
         this.startTime = 0;
@@ -214,9 +212,9 @@ class DaterangepickerLibComponent {
         this.tooltipMessage = Constants.EMPTY_STRING;
         this.dateRangeChanged = new EventEmitter();
         /** @type {?} */
-        let currentTime = moment.now();
+        let currentTime = now();
         if (this.timeRange && parseInt(this.timeRange) > 0) {
-            currentTime = (moment.unix(Number(this.timeRange))).valueOf();
+            currentTime = (unix(Number(this.timeRange))).valueOf();
         }
         this.presetsConfig = {
         /*'Today': [moment(currentTime), moment(currentTime)],
@@ -250,9 +248,9 @@ class DaterangepickerLibComponent {
      */
     initializeDateRangePicker(minDate, maxDate) {
         /** @type {?} */
-        let start = this.startTime == 0 ? moment.utc().subtract(29, 'days') : moment.utc(this.startTime * 1000);
+        let start = this.startTime == 0 ? utc().subtract(29, 'days') : utc(this.startTime * 1000);
         /** @type {?} */
-        let end = this.endTime == 0 ? moment.utc() : moment.utc(this.endTime * 1000);
+        let end = this.endTime == 0 ? utc() : utc(this.endTime * 1000);
         /** @type {?} */
         let that = this;
         /** @type {?} */

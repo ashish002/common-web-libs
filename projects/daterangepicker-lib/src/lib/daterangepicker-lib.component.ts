@@ -1,10 +1,8 @@
 import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from "@angular/core";
 import {Constants} from "./constants";
 import {DateUtil} from "./util/date.util";
-import * as $ from 'jquery';
-import * as moment_ from "moment";
 
-const moment = moment_;
+import * as moment from 'moment';
 
 
 @Component({
