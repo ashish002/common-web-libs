@@ -2,6 +2,7 @@ import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} f
 import {Constants} from "./constants";
 import {DateUtil} from "./util/date.util";
 import * as moment_ from "moment";
+declare var $: any;
 
 const moment = moment_;
 
