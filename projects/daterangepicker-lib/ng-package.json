@@ -4,9 +4,11 @@
   "lib": {
     "entryFile": "src/public-api.ts"
   },
+  "assets": [
+    "assets/**/*"
+  ],
   "whitelistedNonPeerDependencies": [
     "daterangepicker",
-    "moment",
-    "@types/jquery"
+    "moment"
   ]
 }

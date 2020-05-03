@@ -9,8 +9,7 @@
   },
   "dependencies": {
     "daterangepicker": "^3.0.5",
-    "moment": "^2.25.1",
-    "tslib": "^1.9.0"
+    "moment": "^2.25.1"
   },
   "main": "bundles/daterangepicker-lib.umd.js",
   "module": "fesm5/daterangepicker-lib.js",
