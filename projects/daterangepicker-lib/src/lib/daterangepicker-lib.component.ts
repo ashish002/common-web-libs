@@ -2,8 +2,10 @@ import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} f
 import {Constants} from "./constants";
 import {DateUtil} from "./util/date.util";
 
-import * as moment from 'moment';
+import $ from "jquery";
+import moment from 'moment';
 
+import 'daterangepicker';
 
 @Component({
   selector: 'app-daterange-picker',
@@ -72,7 +74,7 @@ export class DaterangepickerLibComponent implements OnInit{
     if(maxDate){
       dateRangePickerConfig['maxDate'] = maxDate;
     }
-    (<any>$(this.dateRangePicker.nativeElement)).daterangepicker(dateRangePickerConfig, this.cb.bind(this)).on('outsideClick.daterangepicker', function(ev, picker) {
+    $(this.dateRangePicker.nativeElement).daterangepicker(dateRangePickerConfig, this.cb.bind(this)).on('outsideClick.daterangepicker', function(ev, picker) {
       that.checkOutsideClickEvent = true;
       picker.startDate = picker.oldStartDate;
       picker.endDate = picker.oldEndDate;

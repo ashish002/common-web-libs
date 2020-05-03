@@ -1,4 +1,5 @@
 import { ElementRef, EventEmitter, OnInit } from "@angular/core";
+import 'daterangepicker';
 export declare class DaterangepickerLibComponent implements OnInit {
     id: string;
     enabledPresets: Array<string>;

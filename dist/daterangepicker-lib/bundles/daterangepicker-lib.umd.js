@@ -1,8 +1,11 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('moment')) :
-    typeof define === 'function' && define.amd ? define('daterangepicker-lib', ['exports', '@angular/core', 'moment'], factory) :
-    (global = global || self, factory(global['daterangepicker-lib'] = {}, global.ng.core, global.moment));
-}(this, (function (exports, core, moment) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('jquery'), require('moment'), require('daterangepicker')) :
+    typeof define === 'function' && define.amd ? define('daterangepicker-lib', ['exports', '@angular/core', 'jquery', 'moment', 'daterangepicker'], factory) :
+    (global = global || self, factory(global['daterangepicker-lib'] = {}, global.ng.core, global.$, global.moment));
+}(this, (function (exports, core, $, moment) { 'use strict';
+
+    $ = $ && $.hasOwnProperty('default') ? $['default'] : $;
+    moment = moment && moment.hasOwnProperty('default') ? moment['default'] : moment;
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -522,7 +525,7 @@
             if (maxDate) {
                 dateRangePickerConfig['maxDate'] = maxDate;
             }
-            ((/** @type {?} */ ($(this.dateRangePicker.nativeElement)))).daterangepicker(dateRangePickerConfig, this.cb.bind(this)).on('outsideClick.daterangepicker', (/**
+            $(this.dateRangePicker.nativeElement).daterangepicker(dateRangePickerConfig, this.cb.bind(this)).on('outsideClick.daterangepicker', (/**
              * @param {?} ev
              * @param {?} picker
              * @return {?}
@@ -642,7 +645,7 @@
         DaterangepickerLibComponent.decorators = [
             { type: core.Component, args: [{
                         selector: 'app-daterange-picker',
-                        template: "<!--<tooltip-content #tooltipContent>{{tooltipMessage}}</tooltip-content>-->\n<span\n      tooltipPlacement=\"bottom\">\n    <div [attr.id]=\"id\" #dateRangePicker class=\"btn btn-default dateRangePicker\">\n      <span #dateRangePickerInput>{{selectedDuration}}</span> <b class=\"caret\"></b>\n    </div>\n  </span>\n",
+                        template: "<!--<tooltip-content #tooltipContent>{{tooltipMessage}}</tooltip-content>-->\n<span tooltipPlacement=\"bottom\">\n    <input [attr.id]=\"id\" #dateRangePicker class=\"btn btn-default dateRangePicker\" value=\"{{selectedDuration}}\" />\n</span>\n",
                         styles: [""]
                     }] }
         ];

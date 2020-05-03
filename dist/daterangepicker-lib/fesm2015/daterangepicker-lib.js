@@ -1,5 +1,7 @@
 import { Injectable, ɵɵdefineInjectable, EventEmitter, Component, Input, ViewChild, Output, NgModule } from '@angular/core';
-import { now, unix, utc } from 'moment';
+import $ from 'jquery';
+import moment from 'moment';
+import 'daterangepicker';
 
 /**
  * @fileoverview added by tsickle
@@ -212,9 +214,9 @@ class DaterangepickerLibComponent {
         this.tooltipMessage = Constants.EMPTY_STRING;
         this.dateRangeChanged = new EventEmitter();
         /** @type {?} */
-        let currentTime = now();
+        let currentTime = moment.now();
         if (this.timeRange && parseInt(this.timeRange) > 0) {
-            currentTime = (unix(Number(this.timeRange))).valueOf();
+            currentTime = (moment.unix(Number(this.timeRange))).valueOf();
         }
         this.presetsConfig = {
         /*'Today': [moment(currentTime), moment(currentTime)],
@@ -248,9 +250,9 @@ class DaterangepickerLibComponent {
      */
     initializeDateRangePicker(minDate, maxDate) {
         /** @type {?} */
-        let start = this.startTime == 0 ? utc().subtract(29, 'days') : utc(this.startTime * 1000);
+        let start = this.startTime == 0 ? moment.utc().subtract(29, 'days') : moment.utc(this.startTime * 1000);
         /** @type {?} */
-        let end = this.endTime == 0 ? utc() : utc(this.endTime * 1000);
+        let end = this.endTime == 0 ? moment.utc() : moment.utc(this.endTime * 1000);
         /** @type {?} */
         let that = this;
         /** @type {?} */
@@ -266,7 +268,7 @@ class DaterangepickerLibComponent {
         if (maxDate) {
             dateRangePickerConfig['maxDate'] = maxDate;
         }
-        ((/** @type {?} */ ($(this.dateRangePicker.nativeElement)))).daterangepicker(dateRangePickerConfig, this.cb.bind(this)).on('outsideClick.daterangepicker', (/**
+        $(this.dateRangePicker.nativeElement).daterangepicker(dateRangePickerConfig, this.cb.bind(this)).on('outsideClick.daterangepicker', (/**
          * @param {?} ev
          * @param {?} picker
          * @return {?}
@@ -351,7 +353,7 @@ class DaterangepickerLibComponent {
 DaterangepickerLibComponent.decorators = [
     { type: Component, args: [{
                 selector: 'app-daterange-picker',
-                template: "<!--<tooltip-content #tooltipContent>{{tooltipMessage}}</tooltip-content>-->\n<span\n      tooltipPlacement=\"bottom\">\n    <div [attr.id]=\"id\" #dateRangePicker class=\"btn btn-default dateRangePicker\">\n      <span #dateRangePickerInput>{{selectedDuration}}</span> <b class=\"caret\"></b>\n    </div>\n  </span>\n",
+                template: "<!--<tooltip-content #tooltipContent>{{tooltipMessage}}</tooltip-content>-->\n<span tooltipPlacement=\"bottom\">\n    <input [attr.id]=\"id\" #dateRangePicker class=\"btn btn-default dateRangePicker\" value=\"{{selectedDuration}}\" />\n</span>\n",
                 styles: [""]
             }] }
 ];
