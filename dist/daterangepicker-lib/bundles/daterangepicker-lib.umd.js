@@ -225,24 +225,6 @@
      * @fileoverview added by tsickle
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
-    var DaterangepickerLibService = /** @class */ (function () {
-        function DaterangepickerLibService() {
-        }
-        DaterangepickerLibService.decorators = [
-            { type: core.Injectable, args: [{
-                        providedIn: 'root'
-                    },] }
-        ];
-        /** @nocollapse */
-        DaterangepickerLibService.ctorParameters = function () { return []; };
-        /** @nocollapse */ DaterangepickerLibService.ngInjectableDef = core.ɵɵdefineInjectable({ factory: function DaterangepickerLibService_Factory() { return new DaterangepickerLibService(); }, token: DaterangepickerLibService, providedIn: "root" });
-        return DaterangepickerLibService;
-    }());
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
     var Constants = /** @class */ (function () {
         function Constants() {
         }
@@ -734,7 +716,6 @@
 
     exports.DaterangepickerLibComponent = DaterangepickerLibComponent;
     exports.DaterangepickerLibModule = DaterangepickerLibModule;
-    exports.DaterangepickerLibService = DaterangepickerLibService;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

@@ -1,23 +1,7 @@
-import { Injectable, ɵɵdefineInjectable, EventEmitter, Component, Input, ViewChild, Output, NgModule } from '@angular/core';
+import { EventEmitter, Component, Input, ViewChild, Output, NgModule } from '@angular/core';
 import $ from 'jquery';
 import moment from 'moment';
 import 'daterangepicker';
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class DaterangepickerLibService {
-    constructor() { }
-}
-DaterangepickerLibService.decorators = [
-    { type: Injectable, args: [{
-                providedIn: 'root'
-            },] }
-];
-/** @nocollapse */
-DaterangepickerLibService.ctorParameters = () => [];
-/** @nocollapse */ DaterangepickerLibService.ngInjectableDef = ɵɵdefineInjectable({ factory: function DaterangepickerLibService_Factory() { return new DaterangepickerLibService(); }, token: DaterangepickerLibService, providedIn: "root" });
 
 /**
  * @fileoverview added by tsickle
@@ -428,5 +412,5 @@ DaterangepickerLibModule.decorators = [
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
-export { DaterangepickerLibComponent, DaterangepickerLibModule, DaterangepickerLibService };
+export { DaterangepickerLibComponent, DaterangepickerLibModule };
 //# sourceMappingURL=daterangepicker-lib.js.map
