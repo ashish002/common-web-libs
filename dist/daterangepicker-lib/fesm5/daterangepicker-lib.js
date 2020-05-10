@@ -3,6 +3,7 @@ import { EventEmitter, Component, Input, ViewChild, Output, NgModule } from '@an
 import $ from 'jquery';
 import moment from 'moment';
 import 'daterangepicker';
+import { CommonModule } from '@angular/common';
 
 /**
  * @fileoverview added by tsickle
@@ -234,29 +235,31 @@ if (false) {
  */
 var DaterangepickerLibComponent = /** @class */ (function () {
     function DaterangepickerLibComponent() {
+        this.timePicker = false;
+        this.alwaysShowCalendar = true;
         this.startTime = 0;
         this.endTime = 0;
-        this.timeRange = localStorage.getItem('timeRange');
-        this.checkOutsideClickEvent = false;
         this.enableDateRangeOption = true;
         this.tooltipMessage = Constants.EMPTY_STRING;
+        this.timeRange = localStorage.getItem('timeRange');
+        this.checkOutsideClickEvent = false;
         this.dateRangeChanged = new EventEmitter();
         /** @type {?} */
-        var currentTime = moment.now();
+        var currentTime = moment();
         if (this.timeRange && parseInt(this.timeRange) > 0) {
-            currentTime = (moment.unix(Number(this.timeRange))).valueOf();
+            currentTime = (moment.unix(Number.parseInt(this.timeRange)));
         }
         this.presetsConfig = {
-        /*'Today': [moment(currentTime), moment(currentTime)],
-        'This Week': [moment(currentTime).startOf('week'), moment(currentTime).endOf('week')],
-        'Week': [moment(currentTime).startOf('week'), moment(currentTime).endOf('week')],
-        'This Month': [moment(currentTime).startOf('month'), moment(currentTime).endOf('month')],
-        'Month': [moment(currentTime).startOf('month'), moment(currentTime).endOf('month')],
-        'Yesterday': [moment(currentTime).subtract(1, 'days'), moment(currentTime).subtract(1, 'days')],
-        'Last 7 Days': [moment(currentTime).subtract(6, 'days'), moment(currentTime)],
-        'Last 30 Days': [moment(currentTime).subtract(29, 'days'), moment(currentTime)],
-        'Last Month': [moment(currentTime).subtract(1, 'month').startOf('month'), moment(currentTime).subtract(1, 'month').endOf('month')],
-        'Quarter': [moment(currentTime).startOf('quarter'), moment(currentTime).endOf('quarter')]*/
+            'Today': [moment(currentTime), moment(currentTime)],
+            'This Week': [moment(currentTime).startOf('week'), moment(currentTime).endOf('week')],
+            'Week': [moment(currentTime).startOf('week'), moment(currentTime).endOf('week')],
+            'This Month': [moment(currentTime).startOf('month'), moment(currentTime).endOf('month')],
+            'Month': [moment(currentTime).startOf('month'), moment(currentTime).endOf('month')],
+            'Yesterday': [moment(currentTime).subtract(1, 'days'), moment(currentTime).subtract(1, 'days')],
+            'Last 7 Days': [moment(currentTime).subtract(6, 'days'), moment(currentTime)],
+            'Last 30 Days': [moment(currentTime).subtract(29, 'days'), moment(currentTime)],
+            'Last Month': [moment(currentTime).subtract(1, 'month').startOf('month'), moment(currentTime).subtract(1, 'month').endOf('month')],
+            'Quarter': [moment(currentTime).startOf('quarter'), moment(currentTime).endOf('quarter')]
         };
     }
     /**
@@ -296,9 +299,10 @@ var DaterangepickerLibComponent = /** @class */ (function () {
         var that = this;
         /** @type {?} */
         var dateRangePickerConfig = {
-            alwaysShowCalendars: true,
-            startDate: start,
-            endDate: end,
+            alwaysShowCalendars: that.alwaysShowCalendar,
+            timePicker: that.timePicker,
+            startDate: that.startTime,
+            endDate: that.endTime,
             ranges: that.enabledPresetsRangeConfig
         };
         if (minDate) {
@@ -306,6 +310,9 @@ var DaterangepickerLibComponent = /** @class */ (function () {
         }
         if (maxDate) {
             dateRangePickerConfig['maxDate'] = maxDate;
+        }
+        if (this.locale) {
+            dateRangePickerConfig['locale'] = this.locale;
         }
         $(this.dateRangePicker.nativeElement).daterangepicker(dateRangePickerConfig, this.cb.bind(this)).on('outsideClick.daterangepicker', (/**
          * @param {?} ev
@@ -377,16 +384,6 @@ var DaterangepickerLibComponent = /** @class */ (function () {
         this.enabledPresetsRangeConfig = config;
     };
     /**
-     * @return {?}
-     */
-    DaterangepickerLibComponent.prototype.init = /**
-     * @return {?}
-     */
-    function () {
-        $(this.dateRangePickerInput.nativeElement).html('Custom');
-        this.ngAfterViewInit();
-    };
-    /**
      * @param {?} start
      * @param {?} end
      * @return {?}
@@ -402,32 +399,10 @@ var DaterangepickerLibComponent = /** @class */ (function () {
         $(this.dateRangePickerInput.nativeElement).html(start.format(DateUtil.DATE_FORMAT_DD_MMM_YYYY) + ' - ' +
             end.format(DateUtil.DATE_FORMAT_DD_MMM_YYYY));
     };
-    /**
-     * @param {?} minDate
-     * @param {?} maxDate
-     * @return {?}
-     */
-    DaterangepickerLibComponent.prototype.setMinMaxDates = /**
-     * @param {?} minDate
-     * @param {?} maxDate
-     * @return {?}
-     */
-    function (minDate, maxDate) {
-        this.initializeDateRangePicker(minDate, maxDate);
-    };
-    /**
-     * @return {?}
-     */
-    DaterangepickerLibComponent.prototype.disableDateRangePicker = /**
-     * @return {?}
-     */
-    function () {
-        return false;
-    };
     DaterangepickerLibComponent.decorators = [
         { type: Component, args: [{
                     selector: 'app-daterange-picker',
-                    template: "<!--<tooltip-content #tooltipContent>{{tooltipMessage}}</tooltip-content>-->\n<span tooltipPlacement=\"bottom\">\n    <input [attr.id]=\"id\" #dateRangePicker class=\"btn btn-default dateRangePicker\" value=\"{{selectedDuration}}\" />\n</span>\n",
+                    template: "<!--<tooltip-content #tooltipContent>{{tooltipMessage}}</tooltip-content>-->\n<span [ngClass]=\"{'disabled-custom': !enableDateRangeOption }\" tooltipPlacement=\"bottom\">\n    <input [attr.id]=\"id\" #dateRangePicker class=\"btn btn-default dateRangePicker\" value=\"{{selectedDuration}}\" />\n</span>\n",
                     styles: [""]
                 }] }
     ];
@@ -437,13 +412,18 @@ var DaterangepickerLibComponent = /** @class */ (function () {
         id: [{ type: Input, args: ['id',] }],
         enabledPresets: [{ type: Input, args: ['enabledPresets',] }],
         selectedDuration: [{ type: Input, args: ['selectedDuration',] }],
-        dateRangePicker: [{ type: ViewChild, args: ['dateRangePicker', { static: false },] }],
-        dateRangePickerInput: [{ type: ViewChild, args: ['dateRangePickerInput', { static: false },] }],
-        dateRangeChanged: [{ type: Output }],
+        timePicker: [{ type: Input, args: ['timePicker',] }],
+        alwaysShowCalendar: [{ type: Input, args: ['alwaysShowCalendars',] }],
+        locale: [{ type: Input, args: ['locale',] }],
+        minDate: [{ type: Input, args: ['minDate',] }],
+        maxDate: [{ type: Input, args: ['minDate',] }],
         startTime: [{ type: Input, args: ['startTime',] }],
         endTime: [{ type: Input, args: ['endTime',] }],
         enableDateRangeOption: [{ type: Input, args: ['enableDateRangeOption',] }],
-        tooltipMessage: [{ type: Input, args: ['tooltipMessage',] }]
+        tooltipMessage: [{ type: Input, args: ['tooltipMessage',] }],
+        dateRangePicker: [{ type: ViewChild, args: ['dateRangePicker', { static: false },] }],
+        dateRangePickerInput: [{ type: ViewChild, args: ['dateRangePickerInput', { static: false },] }],
+        dateRangeChanged: [{ type: Output }]
     };
     return DaterangepickerLibComponent;
 }());
@@ -455,15 +435,29 @@ if (false) {
     /** @type {?} */
     DaterangepickerLibComponent.prototype.selectedDuration;
     /** @type {?} */
+    DaterangepickerLibComponent.prototype.timePicker;
+    /** @type {?} */
+    DaterangepickerLibComponent.prototype.alwaysShowCalendar;
+    /** @type {?} */
+    DaterangepickerLibComponent.prototype.locale;
+    /** @type {?} */
+    DaterangepickerLibComponent.prototype.minDate;
+    /** @type {?} */
+    DaterangepickerLibComponent.prototype.maxDate;
+    /** @type {?} */
+    DaterangepickerLibComponent.prototype.startTime;
+    /** @type {?} */
+    DaterangepickerLibComponent.prototype.endTime;
+    /** @type {?} */
+    DaterangepickerLibComponent.prototype.enableDateRangeOption;
+    /** @type {?} */
+    DaterangepickerLibComponent.prototype.tooltipMessage;
+    /** @type {?} */
     DaterangepickerLibComponent.prototype.dateRangePicker;
     /** @type {?} */
     DaterangepickerLibComponent.prototype.dateRangePickerInput;
     /** @type {?} */
     DaterangepickerLibComponent.prototype.dateRangeChanged;
-    /** @type {?} */
-    DaterangepickerLibComponent.prototype.startTime;
-    /** @type {?} */
-    DaterangepickerLibComponent.prototype.endTime;
     /** @type {?} */
     DaterangepickerLibComponent.prototype.presetsConfig;
     /** @type {?} */
@@ -471,13 +465,7 @@ if (false) {
     /** @type {?} */
     DaterangepickerLibComponent.prototype.timeRange;
     /** @type {?} */
-    DaterangepickerLibComponent.prototype.custom;
-    /** @type {?} */
     DaterangepickerLibComponent.prototype.checkOutsideClickEvent;
-    /** @type {?} */
-    DaterangepickerLibComponent.prototype.enableDateRangeOption;
-    /** @type {?} */
-    DaterangepickerLibComponent.prototype.tooltipMessage;
 }
 
 /**
@@ -490,7 +478,9 @@ var DaterangepickerLibModule = /** @class */ (function () {
     DaterangepickerLibModule.decorators = [
         { type: NgModule, args: [{
                     declarations: [DaterangepickerLibComponent],
-                    imports: [],
+                    imports: [
+                        CommonModule
+                    ],
                     exports: [DaterangepickerLibComponent]
                 },] }
     ];
