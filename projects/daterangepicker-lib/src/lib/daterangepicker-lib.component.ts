@@ -72,8 +72,8 @@ export class DaterangepickerLibComponent implements OnInit, AfterViewInit{
     let dateRangePickerConfig = {
       alwaysShowCalendars: that.alwaysShowCalendar,
       timePicker: that.timePicker,
-      startDate: that.startTime,
-      endDate: that.endTime,
+      startDate: start,
+      endDate: end,
       ranges: that.enabledPresetsRangeConfig
     };
     if(minDate){
