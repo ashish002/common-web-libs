@@ -301,8 +301,8 @@ var DaterangepickerLibComponent = /** @class */ (function () {
         var dateRangePickerConfig = {
             alwaysShowCalendars: that.alwaysShowCalendar,
             timePicker: that.timePicker,
-            startDate: that.startTime,
-            endDate: that.endTime,
+            startDate: start,
+            endDate: end,
             ranges: that.enabledPresetsRangeConfig
         };
         if (minDate) {
@@ -402,7 +402,7 @@ var DaterangepickerLibComponent = /** @class */ (function () {
     DaterangepickerLibComponent.decorators = [
         { type: Component, args: [{
                     selector: 'app-daterange-picker',
-                    template: "<!--<tooltip-content #tooltipContent>{{tooltipMessage}}</tooltip-content>-->\n<span [ngClass]=\"{'disabled-custom': !enableDateRangeOption }\" tooltipPlacement=\"bottom\">\n    <input [attr.id]=\"id\" #dateRangePicker class=\"btn btn-default dateRangePicker\" value=\"{{selectedDuration}}\" />\n</span>\n",
+                    template: "<!--<tooltip-content #tooltipContent>{{tooltipMessage}}</tooltip-content>-->\n<!--<span [ngClass]=\"{'disabled-custom': !enableDateRangeOption }\" tooltipPlacement=\"bottom\">-->\n    <input [attr.id]=\"id\" #dateRangePicker class=\"btn btn-default dateRangePicker\" value=\"{{selectedDuration}}\" />\n<!--</span>-->\n",
                     styles: [""]
                 }] }
     ];
